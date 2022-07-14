@@ -3,17 +3,16 @@ const { Schema, model } = require('mongoose');
 const ProjectSchema = new Schema({
   name: {
     type: String,
-    required: false,
-    unique: false,
+    required: true,
+    unique: true,
   },
   description: {
     type: String,
   },
   lead: {
-    // type: Schema.Types.ObjectId,
-    // ref: 'Employee',
+    type: Schema.Types.ObjectId,
+    ref: 'Employee',
     required: false,
-    type: String
   },
   category: {
     type: String,

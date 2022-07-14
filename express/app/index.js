@@ -11,7 +11,10 @@ require('./config/database')(mongoose);
 
 // importing routes form .routes
 const {
-  ProjectRoutes
+  EmployeeRoutes,
+  ProjectRoutes,
+  TaskRoutes,
+  TeamRoutes,
 } = require('./routes');
 
 // initializng the app
@@ -28,7 +31,10 @@ app.get('/', (req, res) => {
 });
 
 // routes
+app.use('/api/v1/employees', EmployeeRoutes);
 app.use('/api/v1/projects', ProjectRoutes);
+app.use('/api/v1/tasks', TaskRoutes);
+app.use('/api/v1/teams', TeamRoutes);
 
 // define the port
 const port = parseInt(process.env.PORT, 10) || 3000;
